@@ -6,3 +6,7 @@ npm-debug.log
 
 # Environment Variables should NEVER be published
 .env
+
+# JSON files for seed
+seeds/cat/*
+seeds/dog/*
