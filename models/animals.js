@@ -6,7 +6,12 @@ const schema = new mongoose.Schema(
     url: String,
     type: String,
     species: String,
-    breeds: Object,
+    breeds: {
+      primary: String,
+      secondary: String,
+      mixed: Boolean,
+      unknown:String
+    },
     color: String, //primary
     age: String,
     gender: String,
