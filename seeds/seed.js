@@ -1,7 +1,21 @@
 const { withDbConnection } = require("../lib/withDbConnection.js");
 const mongoose = require("mongoose");
 const animals = require("../models/animals");
-const { animals: petsArray } = require("./cat/example.json");
+const { animals: catsPage1 } = require("./cat/page1.json");
+const { animals: catsPage2 } = require("./cat/page2.json");
+const { animals: catsPage3 } = require("./cat/page3.json");
+const { animals: dogsPage1 } = require("./dog/page1.json");
+const { animals: dogsPage2 } = require("./dog/page2.json");
+const { animals: dogsPage3 } = require("./dog/page3.json");
+
+const petsArray = [
+  ...catsPage1,
+  ...catsPage2,
+  ...catsPage3,
+  ...dogsPage1,
+  ...dogsPage2,
+  ...dogsPage3
+];
 
 withDbConnection(async () => {
   await animals.create(
