@@ -9,9 +9,11 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const dbUrl = process.env.DBURL;
+
 
 mongoose
-  .connect('mongodb://localhost/tebo-pets', {useNewUrlParser: true})
+  .connect(dbUrl, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

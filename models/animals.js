@@ -18,13 +18,13 @@ const schema = new mongoose.Schema(
     size: String,
     coat: String,
     attributes: {
-     spayed_neutered: Boolean,
-     house_trained: Boolean,
-     declawed: Boolean,
-     special_needs: Boolean,
-     shots_current: Boolean
+      spayed_neutered: Boolean,
+      house_trained: Boolean,
+      declawed: Boolean,
+      special_needs: Boolean,
+      shots_current: Boolean
     },
-    environment:{
+    environment: {
       children: Boolean,
       dogs: Boolean,
       cats: Boolean
@@ -32,25 +32,25 @@ const schema = new mongoose.Schema(
     tags: Array,
     name: String,
     description: String,
-    photos:{
+    photos: {
       small: Array,
       medium: Array,
       large: Array,
       full: Array
     },
-    contact:{
+    contact: {
       email: String,
       phone: String,
-      address:{
+      address: {
         address1: String,
         address2: String,
         city: String,
-        state:String,
+        state: String,
         postcode: String,
         country: String
       }
     },
-    links:{
+    links: {
       petfinder: String,
       organization: String
     }
@@ -59,7 +59,4 @@ const schema = new mongoose.Schema(
     timestamps: true
   }
 );
-
 module.exports = mongoose.model("animals", schema);
-
-
