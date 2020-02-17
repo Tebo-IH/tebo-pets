@@ -10,7 +10,7 @@ const schema = new mongoose.Schema(
       primary: String,
       secondary: String,
       mixed: Boolean,
-      unknown:String
+      unknown: Boolean
     },
     color: String, //primary
     age: String,
