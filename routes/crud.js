@@ -8,6 +8,11 @@ router.get("/", async (req, res) => {
   res.render("search", { pet });
 });
 
+router.post("/test", async (req, res) => {
+  const pet = await animals.find(req.body);
+  res.json(pet);
+});
+
 /*
 // R : Retrieve details of a particular celeb
 router.get("/show/:id", async (req, res) => {
