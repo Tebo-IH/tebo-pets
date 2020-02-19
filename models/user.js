@@ -2,7 +2,12 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema(
   {
     username: String,
-    password: String
+    password: String,
+    role: {
+      type: String,
+      enum: ['GUEST', 'ADMIN'],
+      default: 'GUEST'
+    },
   },
   {
     timestamps: {

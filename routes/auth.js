@@ -1,6 +1,7 @@
 //AÑADIDO BORJA
 const express = require("express");
 const router = express.Router();
+const checkRole = require('../middlewares/checkRoles');
 
 // User model
 
@@ -86,7 +87,7 @@ router.post("/login", (req, res, next) => {
       }
       if (bcrypt.compareSync(thePassword, user.password)) {
         // Save the login in the session!
-        req.session.currentUser = user;
+        // req.session.currentUser = user;
         res.redirect("/");
       } else {
         res.render("auth/login", {
@@ -99,9 +100,9 @@ router.post("/login", (req, res, next) => {
     })
 });
 
-// router.get("/main", (req, res, next) => {
-//   return res.render("main", { user: req.session.currentUser });
-// });
+router.get("/profile", checkRole('ADMIN'), (req, res, next) => {
+  return res.render("profile");
+});
 
 // router.get("/private", (req, res, next) => {
 //   return res.render("auth/private");

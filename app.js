@@ -9,6 +9,11 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 
+const session = require('express-session');
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
 const dbUrl = process.env.DBURL;
 
 
@@ -32,6 +37,46 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(
+  session({
+    secret: 'simosimo',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+passport.serializeUser((user, callback) => {
+  callback(null, user._id);
+});
+
+passport.deserializeUser((id, callback) => {
+  User.findById(id)
+    .then(user => {
+      callback(null, user);
+    })
+    .catch(error => {
+      callback(error);
+    });
+});
+
+passport.use(
+  new LocalStrategy((username, password, callback) => {
+    User.findOne({ username })
+      .then(user => {
+        if (!user) {
+          return callback(null, false, { message: 'Incorrect username' });
+        }
+        if (!bcrypt.compareSync(password, user.password)) {
+          return callback(null, false, { message: 'Incorrect password' });
+        }
+        callback(null, user);
+      })
+      .catch(error => {
+        callback(error);
+      });
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
