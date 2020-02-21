@@ -4,11 +4,12 @@ const animals = require("../models/animals");
 
 // R : Retrieve animals
 router.get("/", async (req, res) => {
-  const pet = await animals.find({ name: "Kyle" });
-  res.render("search", { pet });
+  // const pet = await animals.find({ name: "Kyle" });
+  //res.render("search", { pet });
+  res.render("search");
 });
 
-router.post("/test", async (req, res) => {
+router.post("/db", async (req, res) => {
   const pet = await animals.find(req.body);
   res.json(pet);
 });

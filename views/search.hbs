@@ -2,37 +2,36 @@
 <form action="/search/test" method="POST" id="form">
 
   {{> openfg title="Animals"}}
-  {{> checkbox key="animals" id="species.dog" label="Dog"}}
-  {{> checkbox key="animals" id="species.cat" label="Cat"}}
+  {{> checkbox name="species" id="Dog" label="Dog"}}
+  {{> checkbox name="species" id="Cat" label="Cat"}}
   {{> closefg}}
 
   {{> openfg title="Sex"}}
-  {{> checkbox key="sex" id="sex.female" label="Female"}}
-  {{> checkbox key="sex" id="sex.male" label="Male"}}
+  {{> checkbox name="gender" id="Female" label="Female"}}
+  {{> checkbox name="gender" id="Male" label="Male"}}
   {{> closefg}}
 
   {{> openfg title="Attributes"}}
-  {{> checkbox key="attributes" id="attributes.spayed_neutered" label="Spayed or neutrered"}}
-  {{> checkbox key="attributes" id="attributes.house_trained" label="House-trained"}}
-  {{> checkbox key="attributes" id="attributes.special_needs" label="Special needs"}}
-  {{> checkbox key="attributes" id="attributes.shots_current" label="Shots current ??"}}
+  {{> checkbox name="attributes" id="attributes.spayed_neutered" label="Spayed or neutrered"}}
+  {{> checkbox name="attributes" id="attributes.house_trained" label="House-trained"}}
+  {{> checkbox name="attributes" id="attributes.special_needs" label="Special needs"}}
+  {{> checkbox name="attributes" id="attributes.shots_current" label="Shots current ??"}}
   {{> closefg}}
 
   {{> openfg title="Environment"}}
-  {{> checkbox key="environment" id="environment.children" label="Children"}}
-  {{> checkbox key="environment" id="environment.dogs" label="Dogs"}}
-  {{> checkbox key="environment" id="environment.cats" label="Cats"}}
+  {{> checkbox name="environment" id="environment.children" label="Children"}}
+  {{> checkbox name="environment" id="environment.dogs" label="Dogs"}}
+  {{> checkbox name="environment" id="environment.cats" label="Cats"}}
   {{> closefg}}
 
 
   {{> openfg title="Country"}}
-  {{> checkbox key="country" id="country.usa" label="US"}}
-  {{> checkbox key="country" id="country.ca" label="CA"}}
-  {{> checkbox key="country" id="country.mex" label="MEX"}}
+  {{> checkbox name= "contact.address.country" id="US" label="US"}}
+  {{> checkbox name= "contact.address.country" id="CA" label="CA"}}
   {{> closefg}}
 
   {{> openfg title ="Only pets with pictures"}}
-  {{> checkbox key="pictures" id="pictures"}}
+  {{> checkbox name="photos" id="photos"}}
   {{> closefg}}
 
 
