@@ -1,0 +1,66 @@
+<h2>{{title}}</h2>
+<form action="/search/test" method="POST" id="form">
+
+  {{> openfg title="Species"}}
+  {{> checkbox name="species" id="Dog" label="Dog"}}
+  {{> checkbox name="species" id="Cat" label="Cat"}}
+  {{> closefg}}
+
+  {{> openfg title="Sex"}}
+  {{> checkbox name="gender" id="Female" label="Female"}}
+  {{> checkbox name="gender" id="Male" label="Male"}}
+  {{> closefg}}
+
+  {{> openfg title="Age"}}
+  {{> checkbox name="age" id="Baby" label="Baby"}}
+  {{> checkbox name="age" id="Young" label="Young"}}
+  {{> checkbox name="age" id="Adult" label="Adult"}}
+  {{> checkbox name="age" id="Senior" label="Senior"}}
+  {{> closefg}}
+
+  {{> openfg title="Size"}}
+  {{> checkbox name="size" id="Small" label="Small"}}
+  {{> checkbox name="size" id="Medium" label="Medium"}}
+  {{> checkbox name="size" id="Large" label="Large"}}
+  {{> checkbox name="size" id="Extra Large" label="Extra Large"}}
+  {{> closefg}}
+
+  {{> openfg title="Coat"}}
+  {{> checkbox name="coat" id="Short" label="Short"}}
+  {{> checkbox name="coat" id="Long" label="Long"}}
+  {{> checkbox name="coat" id="Medium" label="Medium"}}
+  {{> closefg}}
+
+  {{> openfg title="Attributes"}}
+  {{> checkbox name="attributes" id="attributes.spayed_neutered" label="Spayed or neutrered"}}
+  {{> checkbox name="attributes" id="attributes.house_trained" label="House-trained"}}
+  {{> checkbox name="attributes" id="attributes.special_needs" label="Special needs"}}
+  {{> checkbox name="attributes" id="attributes.shots_current" label="Shots current ??"}}
+  {{> closefg}}
+
+  {{> openfg title="Environment"}}
+  {{> checkbox name="environment" id="environment.children" label="Children"}}
+  {{> checkbox name="environment" id="environment.dogs" label="Dogs"}}
+  {{> checkbox name="environment" id="environment.cats" label="Cats"}}
+  {{> closefg}}
+
+
+  {{> openfg title="Country"}}
+  {{> checkbox name= "contact.address.country" id="US" label="US"}}
+  {{> checkbox name= "contact.address.country" id="CA" label="CA"}}
+  {{> closefg}}
+
+
+
+  {{> openfg title ="Only pets with pictures"}}
+  {{> checkbox name="photos" id="photos"}}
+  {{> closefg}}
+
+
+  <input type="submit" value="Search">
+
+
+
+</form>
+
+{{pet}}
