@@ -1,8 +1,12 @@
-//AÑADIDO BORJA
+
 const express = require("express");
 const router = express.Router();
-const checkRole = require('../middlewares/checkRoles');
+const checkRoles = require('../middlewares/checkRoles');
+const ensureLogin = require('connect-ensure-login');
+const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
 
+
+const passport = require("passport");
 // User model
 
 const User = require("../models/user");
@@ -53,6 +57,9 @@ router.post("/signup", (req, res, next) => {
     .catch(error => {
       next(error);
     })
+
+
+
 });
 //Get auth page
 router.get("/signup", (req, res, next) => {
@@ -65,47 +72,28 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login");
 });
 
+
+
 //Post
-router.post("/login", (req, res, next) => {
-  const theUsername = req.body.username;
-  const thePassword = req.body.password;
+router.post(
+  '/login',
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true,
+    passReqToCallback: true
+  })
+);
 
-  if (theUsername === "" || thePassword === "") {
-    res.render("auth/login", {
-      errorMessage: "Please enter both, username and password to sign up."
-    });
-    return;
-  }
-
-  User.findOne({ "username": theUsername })
-    .then(user => {
-      if (!user) {
-        res.render("auth/login", {
-          errorMessage: "The username doesn't exist."
-        });
-        return;
-      }
-      if (bcrypt.compareSync(thePassword, user.password)) {
-        // Save the login in the session!
-        // req.session.currentUser = user;
-        res.redirect("/");
-      } else {
-        res.render("auth/login", {
-          errorMessage: "Incorrect password"
-        });
-      }
-    })
-    .catch(error => {
-      next(error);
-    })
+router.get('/admin', checkRoles('ADMIN'), (req, res) => {
+  res.render('auth/admin', { user: req.user });
 });
 
-router.get("/profile", checkRole('ADMIN'), (req, res, next) => {
-  return res.render("profile");
+router.get('/fav', checkRoles('GUEST'), (req, res) => {
+  res.render('auth/fav', { user: req.user });
 });
 
-// router.get("/private", (req, res, next) => {
-//   return res.render("auth/private");
-// });
+
+
 
 module.exports = router;
