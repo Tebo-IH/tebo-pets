@@ -20,6 +20,8 @@ function getFormData() {
   const fields = {
     species: [],
     gender: [],
+    age: [],
+    size: [],
     attributes: {
       spayed_neutered: "",
       house_trained: "",
@@ -49,7 +51,6 @@ function getFormData() {
         });
       } else if (key == "photos") {
         formData["photos.full"] = { $not: { $size: 0 } };
-
         //string cases
       } else {
         formData[key] = values;
