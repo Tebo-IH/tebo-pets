@@ -1,19 +1,29 @@
 const form = document.getElementById("form");
+const result = document.getElementById("result");
 
 function handleForm(event) {
   event.preventDefault();
+
   const formData = getFormData();
   console.log(formData);
+
   axios
     //recieves search parameters and posts them to /search/test
     .post("/search/db", formData)
     // you get a promise and wait for crud.js response (router.post("/test"))
     .then(responseFromAPI => {
-      console.log(responseFromAPI.data);
+      console.log(responseFromAPI);
+      responseFromAPI.data.forEach(
+        //condicional if, if user is admin  entonces aparece botón delete
+        //<input type="button" id="${pet._id}" ....
+        pet => (result.innerHTML += `${pet.id} <br>`)
+      );
     })
     .catch(err => console.log(err));
 }
+
 form.addEventListener("submit", handleForm);
+// hay que añadir un event listener para ese botón para que podamos borrar el pet de la base de datos
 
 function getFormData() {
   const formData = {};
