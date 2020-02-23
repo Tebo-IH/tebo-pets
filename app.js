@@ -19,7 +19,7 @@ const flash = require("connect-flash");
 const dbUrl = process.env.DBURL;
 
 mongoose
-  .connect(dbUrl, { useNewUrlParser: true })
+  .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`

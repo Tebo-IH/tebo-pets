@@ -73,6 +73,12 @@ router.post(
   })
 );
 
+//logout
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/login");
+});
+
 //Roles
 router.get("/admin", checkRoles("ADMIN"), (req, res) => {
   res.render("auth/admin", { user: req.user });
