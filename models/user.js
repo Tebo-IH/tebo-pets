@@ -5,17 +5,17 @@ const schema = new mongoose.Schema(
     password: String,
     role: {
       type: String,
-      enum: ['GUEST', 'ADMIN'],
-      default: 'GUEST'
+      enum: ["GUEST", "ADMIN"],
+      default: "GUEST"
     },
+    favPets: []
   },
   {
     timestamps: {
-      createdAt: 'created_at',
-      updatedAt: 'updated_at'
+      createdAt: "created_at",
+      updatedAt: "updated_at"
     }
   }
 );
 
 module.exports = mongoose.model("user", schema);
-
