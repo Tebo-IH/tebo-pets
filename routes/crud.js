@@ -6,7 +6,7 @@ const animals = require("../models/animals");
 router.get("/", async (req, res) => {
   // const pet = await animals.find({ name: "Kyle" });
   //res.render("search", { pet });
-  res.render("search");
+  res.render("search", { user: req.user });
 });
 
 router.post("/db", async (req, res) => {

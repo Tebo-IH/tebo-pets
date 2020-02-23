@@ -1,5 +1,10 @@
 <h2>{{title}}</h2>
-<form action="/search/test" method="POST" id="searchForm">
+{{#if user}}
+<div> You are logged in as <div id="role">{{user.role}}</div>
+</div>
+{{/if}}
+
+<form action="/search/db" method="POST" id="searchForm">
 
   {{> openfg title="Species"}}
   {{> checkbox name="species" id="Dog" label="Dog"}}
