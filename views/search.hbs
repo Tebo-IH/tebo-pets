@@ -1,4 +1,9 @@
 <h2>{{title}}</h2>
+{{#if user}}
+<div> You are logged in as <div id="role">{{user.role}}</div>
+</div>
+{{/if}}
+
 <form action="/search/db" method="POST" id="searchForm">
 
   {{> openfg title="Species"}}
