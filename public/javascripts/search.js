@@ -1,5 +1,6 @@
 const form = document.getElementById("searchForm");
 const result = document.getElementById("result");
+const checkRoles = require("../middlewares/checkRoles");
 
 function handleForm(event) {
   event.preventDefault();
@@ -13,11 +14,18 @@ function handleForm(event) {
     // you get a promise and wait for crud.js response (router.post("/test"))
     .then(responseFromAPI => {
       console.log(responseFromAPI);
-      responseFromAPI.data.forEach(
+      responseFromAPI.data.forEach(pet => {
         //condicional if, if user is admin  entonces aparece botón delete
         //<input type="button" id="${pet._id}" ....
-        pet => (result.innerHTML += `${pet.id} <br>`)
-      );
+
+        if (checkRoles("GUEST")) {
+          //add to fav
+        } else if (checkRoles("ADMIN")) {
+          //delete and edit
+        } else {
+          result.innerHTML += `<div class="pet">${pet.id} </div><br>`;
+        }
+      });
     })
     .catch(err => console.log(err));
 }
