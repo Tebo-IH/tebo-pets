@@ -19,7 +19,7 @@ function handleForm(event) {
         //<input type="button" id="${pet._id}" ....
 
         if (checkRoles("GUEST")) {
-          //add to fav
+          //result.innerHTML += `<div class="pet">${pet.id} <input type="button" id=${pet._id} value="<3"></div><br>`;
         } else if (checkRoles("ADMIN")) {
           //delete and edit
         } else {
