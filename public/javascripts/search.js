@@ -1,4 +1,4 @@
-const form = document.getElementById("form");
+const form = document.getElementById("searchForm");
 
 function handleForm(event) {
   event.preventDefault();
