@@ -68,8 +68,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function addToFav(favButtons) {
     favButtons.forEach(button => {
-      button.addEventListener("click", () => console.log("fav button clicked"));
-      // to do: use axios to add to fav
+      button.addEventListener("click", () => {
+        console.log("fav button clicked", button.id);
+        axios
+          .post("/search/fav", { id: button.id })
+          .then(responseFromAPI => console.log(responseFromAPI))
+          .catch(error => console.log(error));
+      });
     });
   }
 
