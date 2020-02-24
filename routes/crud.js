@@ -22,4 +22,10 @@ router.post("/fav", async (req, res) => {
   res.end();
 });
 
+// Delete pet
+router.post("/delete", async (req, res) => {
+  await animals.findByIdAndDelete(req.body.pet);
+  res.end();
+});
+
 module.exports = router;
