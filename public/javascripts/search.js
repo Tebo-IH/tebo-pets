@@ -26,19 +26,22 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", handleForm);
 
   function showPets(pets, role) {
-
     // adds buttons
     result.innerHTML = `<div class="petsList">`;
     pets.forEach(pet => {
       if (role == "GUEST") {
-        result.innerHTML += `<div class="pet">${pet.name} <input type="button" name="fav" id=${pet._id} value="<3">
-        <input type="button" name="delete" id='${pet.id}' value="delete">
+        result.innerHTML += `<div class="pet">${pet.name} 
+        <input type="button" name="fav" id=${pet._id} value="<3">
         </div>
         <br>`;
       } else if (role == "ADMIN") {
-        //delete and edit
+        result.innerHTML += `<div class="pet">${pet.name} 
+        <input type="button" name="delete" id='${pet.id}' value="delete">
+        <input type="button" name="edit" id='${pet.id}' value="edit">
+        </div>
+        <br>`;
       } else {
-        result.innerHTML += `<div class="pet">${pet.name}</div>`
+        result.innerHTML += `<div class="pet">${pet.name}</div>`;
       }
     });
     result.innerHTML += `</div>`;
@@ -48,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
     addToFav(favButtons);
     const deleteButtons = document.getElementsByName("delete");
     deletePets(deleteButtons);
-
   }
 
   function deletePets(deleteButtons) {
@@ -56,14 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", () => {
         console.log("delete button clicked of " + button.id);
         const myPet = pets.filter(pet => pet.id == button.id);
-        console.log(myPet)
+        console.log(myPet);
         let indice = pets.indexOf(myPet[0]);
         pets.splice(indice, 1);
         showPets(pets);
-      })
+      });
     });
   }
-
 
   function addToFav(favButtons) {
     favButtons.forEach(button => {
@@ -116,4 +117,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     return formData;
   }
-})
+});
