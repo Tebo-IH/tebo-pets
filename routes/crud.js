@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 
 router.post("/db", async (req, res) => {
   const pet = await animals.find(req.body);
-  res.json(pet);
+  res.json({ pet, user: req.user });
 });
 
 /*
