@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const animals = require("../models/animals");
+const users = require("../models/user");
 
 // R : Retrieve animals
 router.get("/", async (req, res) => {
-  // const pet = await animals.find({ name: "Kyle" });
-  //res.render("search", { pet });
   res.render("search", { user: req.user });
 });
 
@@ -14,12 +13,19 @@ router.post("/db", async (req, res) => {
   res.json({ pet, user: req.user });
 });
 
-/*
-// R : Retrieve details of a particular celeb
-router.get("/show/:id", async (req, res) => {
-  const { id } = req.params;
-  const celebrity = await Celebrity.findById(id);
-  res.render("celebrities/show", { celebrity });
-});*/
+// Add fav
+router.post("/fav", async (req, res) => {
+  console.log(req.body);
+  await users.findByIdAndUpdate(req.user._id, {
+    $addToSet: { favPets: req.body.id }
+  });
+  res.end();
+});
+
+// Delete pet
+router.post("/delete", async (req, res) => {
+  await animals.findByIdAndDelete(req.body.pet);
+  res.end();
+});
 
 module.exports = router;
