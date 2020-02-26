@@ -1,8 +1,22 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #f29f05; }
 
 a {
-  color: #00B7FF; }
+  color: #9305f2; }
+
+#carousel-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 60vh; }
+
+.carousel-item img {
+  max-width: 60%;
+  height: auto; }
+
+body {
+  overflow-x: hidden; }
 
 /*# sourceMappingURL=style.css.map */
