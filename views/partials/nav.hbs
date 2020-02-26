@@ -1,6 +1,13 @@
-{{#if user}}
-<a href="/logout">Logout</a>
-{{else}}
-<a href="/signup">Signup</a>
-<a href="/login">Login</a>
-{{/if}}
+<nav class="nav-bar">
+  {{#if user}}
+  <div class="logout">
+    <a href="/logout">Logout</a>
+  </div>
+
+  {{else}}
+  <ul class="li-items">
+    <li class="signup"><a href="/signup">Signup</a></li>
+    <li class="login"><a href="/login">Login</a></li>
+  </ul>
+  {{/if}}
+</nav>

@@ -3,6 +3,24 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: #00b7ff; }
+
+.nav-bar {
+  height: 50px;
+  background-color: #1c4e68; }
+
+.li-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none; }
+
+.signup {
+  padding-right: 20px;
+  padding-top: 15px; }
+
+.login {
+  padding-top: 15px; }
 
 /*# sourceMappingURL=style.css.map */
