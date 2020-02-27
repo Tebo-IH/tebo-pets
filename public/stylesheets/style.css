@@ -35,12 +35,26 @@ h1 {
 #carousel-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  justify-self: center;
   width: 100vw;
-  height: 60vh; }
+  height: 85%;
+  padding-left: 40px; }
+
+.carousel-caption {
+  width: 60%;
+  background-color: rebeccapurple;
+  /* z-index: 999; */
+  left: 35%;
+  border-radius: 10px;
+  text-align: left;
+  padding: 10px 20px; }
 
 .carousel-item img {
-  max-width: 60%;
-  height: auto; }
+  max-width: 40%;
+  height: auto;
+  border-radius: 3px; }
 
 a {
   color: #333333; }
@@ -48,5 +62,44 @@ a {
 a:hover {
   color: #9305f2;
   text-decoration: none; }
+
+.logo {
+  width: 180px; }
+
+.input-login {
+  align-self: center;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #9305f2;
+  width: 30%;
+  padding-left: 10px;
+  outline: none;
+  margin-bottom: 50px;
+  color: white; }
+
+::placeholder {
+  color: #333333;
+  opacity: 0.7; }
+
+#form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 70px; }
+
+#form h2 {
+  padding-bottom: 50px; }
+
+.btn-login {
+  width: 200px;
+  background-color: #9305f2;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  align-self: center;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  height: 50px; }
 
 /*# sourceMappingURL=style.css.map */
