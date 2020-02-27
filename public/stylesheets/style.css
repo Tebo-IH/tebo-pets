@@ -1,15 +1,20 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #f29f05;
-  overflow-x: hidden; }
-
-a {
-  color: #00b7ff; }
+  background: linear-gradient(#f27405 30%, #f2b705);
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  height: 100vh; }
 
 .nav-bar {
-  height: 50px;
-  background-color: #f27405; }
+  height: 80px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 0px 40px;
+  justify-content: space-between; }
+
+h1 {
+  margin-bottom: 0; }
 
 .li-items {
   display: flex;
@@ -20,7 +25,8 @@ a {
 
 .signup {
   padding-right: 20px;
-  padding-top: 15px; }
+  padding-top: 15px;
+  color: red !important; }
 
 .login {
   padding-top: 15px;
@@ -35,5 +41,12 @@ a {
 .carousel-item img {
   max-width: 60%;
   height: auto; }
+
+a {
+  color: #333333; }
+
+a:hover {
+  color: #9305f2;
+  text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */

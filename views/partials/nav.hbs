@@ -1,11 +1,14 @@
 <nav class="nav-bar">
-  {{#if user}}
-  <div class="logout">
-    <a href="/logout">Logout</a>
+  <div>
+    <h1>Tebo Pets</h1>
   </div>
-
-  {{else}}
   <ul class="li-items">
+    {{#if user}}
+    <div class="logout">
+      <a href="/logout">Logout</a>
+    </div>
+
+    {{else}}
     <li class="signup"><a href="/signup">Signup</a></li>
     <li class="login"><a href="/login">Login</a></li>
   </ul>
