@@ -1,6 +1,14 @@
+$color-1: #f27405;
+$color-2: #f28705;
+$color-3: #f29f05;
+$color-4: #f2b705;
+$color-strong: #9305f2;
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: $color-3;
+  overflow-x: hidden;
 }
 
 a {
@@ -8,7 +16,7 @@ a {
 }
 .nav-bar {
   height: 50px;
-  background-color: rgb(28, 78, 104);
+  background-color: $color-1;
 }
 
 .li-items {
@@ -24,4 +32,15 @@ a {
 }
 .login {
   padding-top: 15px;
+  color: $color-strong;
+}
+#carousel-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 60vh;
+}
+.carousel-item img {
+  max-width: 60%;
+  height: auto;
 }

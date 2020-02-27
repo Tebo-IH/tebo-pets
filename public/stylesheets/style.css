@@ -1,13 +1,15 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #f29f05;
+  overflow-x: hidden; }
 
 a {
   color: #00b7ff; }
 
 .nav-bar {
   height: 50px;
-  background-color: #1c4e68; }
+  background-color: #f27405; }
 
 .li-items {
   display: flex;
@@ -21,6 +23,17 @@ a {
   padding-top: 15px; }
 
 .login {
-  padding-top: 15px; }
+  padding-top: 15px;
+  color: #9305f2; }
+
+#carousel-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 60vh; }
+
+.carousel-item img {
+  max-width: 60%;
+  height: auto; }
 
 /*# sourceMappingURL=style.css.map */
