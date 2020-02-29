@@ -1,11 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("searchForm");
   const result = document.getElementById("result");
-<<<<<<< HEAD
   const btns = document.getElementById("resultBtns");
   let maxIdx = 20;
-=======
->>>>>>> develop
 
   function handleForm(event) {
     event.preventDefault();

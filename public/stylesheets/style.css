@@ -6,13 +6,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-<<<<<<< HEAD
   height: 100vh;
   overflow-x: hidden; }
-=======
-  overflow-x: hidden;
-  height: 100vh; }
->>>>>>> develop
 
 .nav-bar {
   height: 80px;
@@ -112,7 +107,6 @@ a:hover {
   margin-top: 30px;
   height: 50px; }
 
-<<<<<<< HEAD
 #search {
   padding: 5vh 5vw; }
   #search legend {
@@ -145,14 +139,13 @@ a:hover {
     order: 1; }
   #resultBtns .previous {
     order: 0; }
-=======
-.name {
-  font-size: 35px;
-  padding-top: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: underline #9305f2; }
+  #resultBtns .name {
+    font-size: 35px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline #9305f2; }
 
 .size-gender {
   font-size: 22px;
@@ -183,6 +176,5 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center; }
->>>>>>> develop
 
 /*# sourceMappingURL=style.css.map */

@@ -12,10 +12,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-<<<<<<< HEAD
-=======
-  overflow-x: hidden;
->>>>>>> develop
   height: 100vh;
   overflow-x: hidden;
 }
@@ -131,7 +127,6 @@ a:hover {
   height: 50px;
 }
 
-<<<<<<< HEAD
 #search {
   padding: 5vh 5vw;
   legend {
@@ -173,14 +168,14 @@ a:hover {
   .previous {
     order: 0;
   }
-=======
-.name {
-  font-size: 35px;
-  padding-top: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: underline $color-strong;
+  .name {
+    font-size: 35px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline $color-strong;
+  }
 }
 
 .size-gender {
@@ -217,5 +212,4 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
->>>>>>> develop
 }
