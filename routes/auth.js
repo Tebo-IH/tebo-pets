@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
+const animals = require("../models/animals");
+
 
 const checkRoles = require("../middlewares/checkRoles");
 const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
@@ -84,8 +86,9 @@ router.get("/admin", checkRoles("ADMIN"), (req, res) => {
   res.render("auth/admin", { user: req.user });
 });
 
-router.get("/fav", checkRoles("GUEST"), (req, res) => {
-  res.render("auth/fav", { user: req.user });
+router.get("/fav", checkRoles("GUEST"), async (req, res) => {
+  const favPets = await animals.find().where('_id').in(req.user.favPets).exec();
+  res.render("auth/fav", { favPets });
 });
 
 module.exports = router;
