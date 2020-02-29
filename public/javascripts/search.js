@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("searchForm");
   const result = document.getElementById("result");
+  const btns = document.getElementById("resultBtns");
+  let maxIdx = 20;
 
   function handleForm(event) {
     event.preventDefault();
@@ -25,35 +27,64 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", handleForm);
 
   function showPets(pets, role) {
-    // adds buttons
-    result.innerHTML = `<div class="petsList">`;
-    pets.forEach(pet => {
+    let pagePets = pets.slice(0, maxIdx);
+
+    paginatePets(pagePets, pets, role);
+  }
+
+  function paginatePets(pagePets, pets, role) {
+    result.innerHTML = ``;
+    pagePets.forEach(pet => {
+      result.innerHTML += `
+      <div class="pet">${pet.name}<br>
+      <img src=${pet.photos.small[0]}>
+      `;
+
+      //adds buttons if role
       if (role == "GUEST") {
-        result.innerHTML += `<div class="pet">${pet.name} 
+        result.innerHTML += ` 
         <input type="button" name="fav" id=${pet._id} value="<3">
-        </div>
         <br>`;
       } else if (role == "ADMIN") {
-        result.innerHTML += `<div class="pet">${pet.name} 
+        result.innerHTML += ` 
         <input type="button" name="delete" id='${pet._id}' value="delete">
-        </div>
         <br>`;
-        /*result.innerHTML += `<div class="pet">${pet.name} 
+        /*result.innerHTML += ` 
         <input type="button" name="delete" id='${pet._id}' value="delete">
         <input type="button" name="edit" id='${pet._id}' value="edit">
         </div>
         <br>`;*/
-      } else {
-        result.innerHTML += `<div class="pet">${pet.name}</div>`;
       }
+      result.innerHTML += `</div>`;
     });
-    result.innerHTML += `</div>`;
 
     //buttons functions
     const favButtons = document.getElementsByName("fav");
     addToFav(favButtons);
     const deleteButtons = document.getElementsByName("delete");
     deletePets(deleteButtons, pets, role);
+    console.log(maxIdx);
+
+    //add pagination buttons:
+    btns.innerHTML = ``;
+    btns.innerHTML += `<input type="button" class="page-btn next" id="nextPageBtn" name="nextPage" value="next page">`;
+
+    if (maxIdx > 20) {
+      btns.innerHTML += `<input type="button" class="page-btn previous" id="previousPageBtn" name="previousPage" value="previous page">`;
+      const previousBtn = document.getElementById("previousPageBtn");
+      previousBtn.addEventListener("click", () => {
+        maxIdx -= 20;
+        let pagePets = pets.slice(maxIdx, maxIdx + 20);
+        paginatePets(pagePets, pets, role);
+      });
+    }
+
+    const nextBtn = document.getElementById("nextPageBtn");
+    nextBtn.addEventListener("click", () => {
+      maxIdx += 20;
+      let pagePets = pets.slice(maxIdx, maxIdx + 20);
+      paginatePets(pagePets, pets, role);
+    });
   }
 
   function deletePets(deleteButtons, pets, role) {

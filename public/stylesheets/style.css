@@ -1,11 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
   background: linear-gradient(#f27405 30%, #f2b705);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  overflow-x: hidden;
-  height: 100vh; }
+  height: 100vh;
+  overflow-x: hidden; }
 
 .nav-bar {
   height: 80px;
@@ -30,6 +32,9 @@ h1 {
   padding-right: 20px;
   padding-top: 15px;
   color: red !important; }
+
+.signup-fix {
+  display: none; }
 
 .login {
   padding-top: 15px;
@@ -105,13 +110,45 @@ a:hover {
   margin-top: 30px;
   height: 50px; }
 
-.name {
-  font-size: 35px;
-  padding-top: 15px;
+#search {
+  padding: 5vh 5vw; }
+  #search legend {
+    font-weight: 700; }
+
+.card {
+  background: none;
+  border: none; }
+  .card .card-header {
+    background: none;
+    border: none; }
+
+#result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  #result .pet {
+    font-weight: 700;
+    width: 25%;
+    height: 15vh;
+    object-fit: cover; }
+  #result .page-btn {
+    height: 10vh; }
+
+#resultBtns {
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-decoration: underline #9305f2; }
+  margin-top: 10vh; }
+  #resultBtns .next {
+    order: 1; }
+  #resultBtns .previous {
+    order: 0; }
+  #resultBtns .name {
+    font-size: 35px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline #9305f2; }
 
 .size-gender {
   font-size: 22px;
