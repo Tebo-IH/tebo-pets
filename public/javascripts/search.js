@@ -2,11 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("searchForm");
   const result = document.getElementById("result");
   const btns = document.getElementById("resultBtns");
+  const numResults = document.getElementById("numberOfResults");
   let maxIdx = 20;
 
   function handleForm(event) {
     event.preventDefault();
-
     const formData = getFormData();
     console.log(formData);
     axios
@@ -18,8 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const pets = responseFromAPI.data.pet;
         const user = responseFromAPI.data.user;
         const role = user ? user.role : null;
-
+        numResults.innerHTML = `${pets.length} results`
+        $('#collapseFilter').collapse('hide');
         showPets(pets, role);
+
       })
       .catch(err => console.log(err));
   }
@@ -126,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: [],
       age: [],
       size: [],
+      coat: [],
       attributes: {
         spayed_neutered: "",
         house_trained: "",
@@ -163,4 +166,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     return formData;
   }
+});
+
+//change text in collapse btn
+
+$('#collapseFilter').on('shown.bs.collapse', function () {
+  $('#collapseBtn').text('Collapse filters');
+});
+$('#collapseFilter').on('hidden.bs.collapse', function () {
+  $('#collapseBtn').text('Show filters');
 });
