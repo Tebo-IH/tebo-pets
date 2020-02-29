@@ -4,14 +4,14 @@
     <div class="card">
       <div class="card-header" id="headingOne">
         <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-            aria-controls="collapseOne">
-            Filters
+          <button id="collapseBtn" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFilter"
+            aria-expanded="true" aria-controls="collapseOne">
+            Collapse filters
           </button>
         </h5>
       </div>
 
-      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div id="collapseFilter" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
         <div class="card-body">
 
           <form action="/search/db" method="POST" id="searchForm">
@@ -102,8 +102,7 @@
 
 
 
-
-
+  <div id="numberOfResults"></div>
   <div id="result">
   </div>
   <div id="resultBtns"></div>
