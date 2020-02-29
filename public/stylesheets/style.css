@@ -2,8 +2,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: linear-gradient(#f27405 30%, #f2b705);
   background-repeat: no-repeat;
-  overflow-x: hidden;
-  height: 100vh; }
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  overflow-x: hidden; }
 
 .nav-bar {
   height: 80px;
@@ -101,5 +103,15 @@ a:hover {
   margin-bottom: 20px;
   margin-top: 30px;
   height: 50px; }
+
+#search {
+  padding: 5vh 5vw; }
+
+.card {
+  background: none;
+  border: none; }
+  .card .card-header {
+    background: none;
+    border: none; }
 
 /*# sourceMappingURL=style.css.map */
