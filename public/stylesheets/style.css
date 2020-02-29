@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
   background: linear-gradient(#f27405 30%, #f2b705);
   background-repeat: no-repeat;
   background-size: cover;
@@ -106,6 +108,8 @@ a:hover {
 
 #search {
   padding: 5vh 5vw; }
+  #search legend {
+    font-weight: 700; }
 
 .card {
   background: none;
@@ -113,5 +117,26 @@ a:hover {
   .card .card-header {
     background: none;
     border: none; }
+
+#result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  #result .pet {
+    font-weight: 700;
+    width: 25%;
+    height: 15vh;
+    object-fit: cover; }
+  #result .page-btn {
+    height: 10vh; }
+
+#resultBtns {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh; }
+  #resultBtns .next {
+    order: 1; }
+  #resultBtns .previous {
+    order: 0; }
 
 /*# sourceMappingURL=style.css.map */

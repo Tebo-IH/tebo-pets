@@ -3,9 +3,11 @@ $color-2: #f28705;
 $color-3: #f29f05;
 $color-4: #f2b705;
 $color-strong: #9305f2;
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
   background: linear-gradient($color-1 30%, $color-4);
   background-repeat: no-repeat;
   background-size: cover;
@@ -126,6 +128,9 @@ a:hover {
 
 #search {
   padding: 5vh 5vw;
+  legend {
+    font-weight: 700;
+  }
 }
 
 .card {
@@ -134,5 +139,32 @@ a:hover {
   .card-header {
     background: none;
     border: none;
+  }
+}
+
+#result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .pet {
+    font-weight: 700;
+    width: 25%;
+    height: 15vh;
+    object-fit: cover;
+  }
+  .page-btn {
+    height: 10vh;
+  }
+}
+
+#resultBtns {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+  .next {
+    order: 1;
+  }
+  .previous {
+    order: 0;
   }
 }
