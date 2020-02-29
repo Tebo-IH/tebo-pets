@@ -122,6 +122,9 @@ a:hover {
     background: none;
     border: none; }
 
+#numberOfResults {
+  margin: 5vh 0; }
+
 #result {
   display: flex;
   flex-wrap: wrap;
