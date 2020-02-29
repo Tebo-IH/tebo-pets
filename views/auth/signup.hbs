@@ -1,12 +1,16 @@
 {{#if errorMessage}}
 <div class="error-message">{{ errorMessage }}</div>
 {{/if}}
+
 <form id="form" action="/signup" method="POST">
-  <label for="username">Username</label><br>
-  <input type="text" name="username" placeholder="Your username" required>
+  <h2 class="h2">Signup</h2>
 
-  <label for="password">Password</label><br>
-  <input type="password" name="password" id="password" placeholder="********" required minlength="5">
+  <label for="username"></label><br>
+  <input type="text" name="username" class="input-login" placeholder="Your username" required>
 
-  <button type="submit">Create account</button>
+  <label for="password"></label><br>
+  <input class="input-login" type="password" name="password" id="password" placeholder="********" required
+    minlength="5">
+
+  <button class="btn-login-create" type="submit">Create account</button>
 </form>

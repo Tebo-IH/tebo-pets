@@ -1,17 +1,18 @@
 <form id="form" action="/login" method="POST" id="form">
-  <h2>Login</h2>
+  <h2 class="h2">Login</h2>
 
-  <label for="username">Username</label>
-  <input type="text" id="username" name="username" required>
+  <!-- <label for="username">Username</label>-->
+  <input class="input-login" x placeholder="Username" type="text" id="username" name="username" required>
 
-  <label for="password">Password</label>
-  <input type="password" name="password" id="password" required minlength="5">
+  <!-- <label for="password">Password</label>-->
+  <input class="input-login" placeholder="Password" type="password" name="password" id="password" required
+    minlength="5">
 
   {{#if errorMessage }}
   <div class="error-message">{{ errorMessage }}</div>
   {{/if}}
 
-  <button>Sign in</button>
+  <button class="btn-login-create">Sign in</button>
 
   <p class="account-message">
     Don't have an account? <a href="/signup">Sign up</a>

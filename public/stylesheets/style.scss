@@ -5,24 +5,119 @@ $color-4: #f2b705;
 $color-strong: #9305f2;
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: $color-3;
+  background: linear-gradient($color-1 30%, $color-4);
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
-a {
+.nav-bar {
+  height: 80px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 0px 40px;
+  justify-content: space-between;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+.li-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+.signup-login {
+  padding-right: 20px;
+  padding-top: 15px;
+  color: red !important;
+}
+.login {
+  padding-top: 15px;
   color: $color-strong;
 }
 #carousel-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  justify-self: center;
   width: 100vw;
-  height: 60vh;
+  height: 85%;
+  padding-left: 40px;
 }
+
+.carousel-caption {
+  width: 60%;
+  background-color: rebeccapurple;
+  // height: 100px;
+  /* z-index: 999; */
+  left: 35%;
+  border-radius: 10px;
+  text-align: left;
+  padding: 10px 20px;
+}
+
 .carousel-item img {
-  max-width: 60%;
+  max-width: 40%;
   height: auto;
+  border-radius: 3px;
 }
-body {
-  overflow-x: hidden;
+
+a {
+  color: #333333;
+}
+a:hover {
+  color: $color-strong;
+  text-decoration: none;
+}
+
+.logo {
+  width: 180px;
+}
+
+.input-login {
+  align-self: center;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid $color-strong;
+  width: 30%;
+  padding-left: 10px;
+  outline: none;
+  margin-bottom: 50px;
+  color: white;
+}
+
+::placeholder {
+  color: #333333;
+  opacity: 0.7;
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 70px;
+}
+
+.h2 {
+  padding-bottom: 50px;
+}
+
+.btn-login-create {
+  width: 200px;
+  background-color: $color-strong;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  align-self: center;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  height: 50px;
 }
