@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("searchForm");
   const result = document.getElementById("result");
-  let pets;
 
   function handleForm(event) {
     event.preventDefault();

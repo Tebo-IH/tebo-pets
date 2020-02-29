@@ -1,14 +1,15 @@
 <nav class="nav-bar">
   <div>
-    <img class="logo" src="./images/logo.svg" alt="logo teboo">
+    <a href="/"><img class="logo" src="./images/logo.svg" alt="logo teboo"></a>
   </div>
   <ul class="li-items">
+    <li class="signup-login"><a href="/search">🔍 Search</a></li>
     {{#if user}}
-    <div class="logout">
-      <a href="/logout">Logout</a>
-    </div>
+    <li class="signup-login"><a href="/fav">Favorites</a></li>
+    <li class="signup-login"> <a href="/logout">Logout</a> </li>
 
     {{else}}
+
     <li class="signup-login"><a href="/signup">Signup</a></li>
     <li class="signup-login"><a href="/login">Login</a></li>
   </ul>
