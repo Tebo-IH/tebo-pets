@@ -32,7 +32,7 @@ h1 {
   align-items: center;
   list-style: none;
 }
-.signup {
+.signup-login {
   padding-right: 20px;
   padding-top: 15px;
   color: red !important;
@@ -106,11 +106,11 @@ a:hover {
   padding-top: 70px;
 }
 
-#form h2 {
+.h2 {
   padding-bottom: 50px;
 }
 
-.btn-login {
+.btn-login-create {
   width: 200px;
   background-color: $color-strong;
   border: none;
