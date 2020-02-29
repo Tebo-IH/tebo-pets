@@ -10,3 +10,5 @@ npm-debug.log
 # JSON files for seed
 seeds/cat/*
 seeds/dog/*
+
+.DS_Store
