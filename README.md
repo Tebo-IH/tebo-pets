@@ -1,5 +1,5 @@
 # teboo
-Teboo is a Full-stack Web Application developed in two weeks by [@borja115](www.github.com/borja115) and [@pelinski](www.github.com/pelinski) for the Ironhack Web Development bootcamp. The app is built on Express and uses Node.js, HandlebarsJS, HTML5, CSS, SASS, MongoDB, AXIOS and other npm packages.
+Teboo is a Full-stack Web Application developed in two weeks by [@borja115](https://www.github.com/borja115) and [@pelinski](https://www.github.com/pelinski) for the Ironhack Web Development bootcamp. The app is built on Express and uses Node.js, HandlebarsJS, HTML5, CSS, SASS, MongoDB, AXIOS and other npm packages.
 
 Try teboo [**here**](https://tebo-pets.herokuapp.com/).
 
@@ -9,7 +9,7 @@ Teboo helps you find your perfect pet match. Its main functionality is providing
 ## Technicalities 
 ### Database 
 We used **mongoDB** for the database. There are two models: one for pets and one for users. They can be found in the `models` folder. 
-We did not create 600 pets for our database seed, they are actually real pets set for adoption in [Petfinder](www.petfinder.com). We used the [PetfinderAPI](https://www.petfinder.com/developers/) to import the pets to our database and adapted their profiles to our mongoDB model. See `seeds/seed.js`
+We did not create 600 pets for our database seed, they are actually real pets set for adoption in [Petfinder](https://www.petfinder.com). We used the [PetfinderAPI](https://www.petfinder.com/developers/) to import the pets to our database and adapted their profiles to our mongoDB model. See `seeds/seed.js`
 
 ### Authentication and roles
 The **Passport** middleware is used for handling the authentication and roles in the app. There are three roles in our app: VISITOR, GUEST and ADMIN. 
