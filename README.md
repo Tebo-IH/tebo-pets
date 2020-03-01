@@ -22,7 +22,7 @@ The results have also been paginated so that only 20 pets are shown per page. Th
 
 
 ### Handlebars and SASS
-Handlebars is also used for a more effective HTML template generation. Partials are also used for the navbar and the search filters form. SASS was also used for a more effective stylesheet generation.
+Handlebars and SASS are used for a more effective HTML and CSS generation. Handlebar partials are also used for the navbar and the search filters form.
 
 ## There is always (a lot of) room for improvement
 Due to time restrictions, a couple of aspects that were in our initial idea have been left undone. In order of importance:
