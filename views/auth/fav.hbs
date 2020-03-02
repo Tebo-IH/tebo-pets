@@ -1,11 +1,12 @@
-{{#each favPets}}
 <div class="results">
-  <h1 class="name">{{this.name}}</h1>
-  <div class="size-gender">
+  {{#each favPets}}
+  <div class="favItems">
+    <h1 class="name">{{this.name}}</h1>
     <p class="li-size-gender">{{this.size}}</p>
     <p class="li-size-gender">{{this.gender}}</p>
+    <div class="fav-photo"> <img src="{{this.photos.medium}}" alt=""></div>
+    <button class="button" onclick="window.location.href='{{this.url}}'">Adoption</button>
   </div>
-</div>
-<div class="fav-photo"> <img src="{{this.photos.medium}}" alt=""></div>
+  {{/each}}
 
-{{/each}}
+</div>
