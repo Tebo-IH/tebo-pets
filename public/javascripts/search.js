@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("searchForm");
   const result = document.getElementById("result");
+  const btns = document.getElementById("resultBtns");
+  const numResults = document.getElementById("numberOfResults");
+  let maxIdx = 20;
 
   function handleForm(event) {
     event.preventDefault();
-
     const formData = getFormData();
     console.log(formData);
     axios
@@ -16,44 +18,88 @@ document.addEventListener("DOMContentLoaded", () => {
         const pets = responseFromAPI.data.pet;
         const user = responseFromAPI.data.user;
         const role = user ? user.role : null;
-
+        numResults.innerHTML = `${pets.length} results`
+        $('#collapseFilter').collapse('hide');
         showPets(pets, role);
+
       })
       .catch(err => console.log(err));
   }
-
   form.addEventListener("submit", handleForm);
 
   function showPets(pets, role) {
-    // adds buttons
-    result.innerHTML = `<div class="petsList">`;
-    pets.forEach(pet => {
+    let pagePets = pets.slice(0, maxIdx);
+    paginatePets(pagePets, pets, role);
+  }
+
+  function paginatePets(pagePets, pets, role) {
+
+    result.innerHTML = ``;
+    pagePets.forEach(pet => {
+      let petHTML = `<div class="pet"><h4>${pet.name}</h4><br><a href="${pet.url}">`
+      if (pet.photos.large.length == 0) {
+        petHTML += `
+        <img class="default-img" src="./images/default-paw.svg"></img>`;
+      } else {
+        petHTML += `
+        <img src=${pet.photos.large[0]}></img>`;
+      }
+
+      petHTML += `</a><p>
+      Sex: ${pet.gender}<br>
+      Age: ${pet.age}<br>
+      Size: ${pet.size}<br>
+      Breed: ${pet.breeds.primary}<br>
+      </p>`
+
+
+      //adds buttons if role
       if (role == "GUEST") {
-        result.innerHTML += `<div class="pet">${pet.name} 
-        <input type="button" name="fav" id=${pet._id} value="<3">
-        </div>
+        petHTML += ` 
+        <input class="btn-basic" type="button" name="fav" id=${pet._id} value="♡">
         <br>`;
       } else if (role == "ADMIN") {
-        result.innerHTML += `<div class="pet">${pet.name} 
-        <input type="button" name="delete" id='${pet._id}' value="delete">
-        </div>
+        petHTML += ` 
+        <input class="btn-basic" type="button" name="delete" id='${pet._id}' value="Delete from database">
         <br>`;
-        /*result.innerHTML += `<div class="pet">${pet.name} 
+        /*petDisplay.innerHTML += ` 
         <input type="button" name="delete" id='${pet._id}' value="delete">
         <input type="button" name="edit" id='${pet._id}' value="edit">
         </div>
         <br>`;*/
-      } else {
-        result.innerHTML += `<div class="pet">${pet.name}</div>`;
       }
+      petHTML += `</div>`;
+      result.innerHTML += petHTML;
     });
-    result.innerHTML += `</div>`;
 
     //buttons functions
     const favButtons = document.getElementsByName("fav");
     addToFav(favButtons);
     const deleteButtons = document.getElementsByName("delete");
     deletePets(deleteButtons, pets, role);
+    console.log(maxIdx);
+
+    //add pagination buttons:
+    btns.innerHTML = ``;
+    btns.innerHTML += `<input type="button" class="btn-basic page-btn next" id="nextPageBtn" name="nextPage" value="next page">`;
+
+    if (maxIdx > 20) {
+      btns.innerHTML += `<input type="button" class="btn-basic page-btn previous" id="previousPageBtn" name="previousPage" value="previous page">`;
+      const previousBtn = document.getElementById("previousPageBtn");
+      previousBtn.addEventListener("click", () => {
+        maxIdx -= 20;
+        let pagePets = pets.slice(maxIdx, maxIdx + 20);
+        paginatePets(pagePets, pets, role);
+      });
+    }
+
+    const nextBtn = document.getElementById("nextPageBtn");
+    nextBtn.addEventListener("click", () => {
+      maxIdx += 20;
+      let pagePets = pets.slice(maxIdx, maxIdx + 20);
+      paginatePets(pagePets, pets, role);
+
+    });
   }
 
   function deletePets(deleteButtons, pets, role) {
@@ -95,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: [],
       age: [],
       size: [],
+      coat: [],
       attributes: {
         spayed_neutered: "",
         house_trained: "",
@@ -133,3 +180,20 @@ document.addEventListener("DOMContentLoaded", () => {
     return formData;
   }
 });
+
+//change text in collapse btn
+
+$('#collapseFilter').on('shown.bs.collapse', function () {
+  $('#collapseBtn').text('Collapse filters');
+});
+$('#collapseFilter').on('hidden.bs.collapse', function () {
+  $('#collapseBtn').text('Show filters');
+});
+
+
+/*
+$('#nextPageBtn').on('click', function () {
+  $('html,body').animate({ scrollTop: 2000 }, 2000);
+  $('html').animate({ scrollTop: 2000 }, 2000); // works in Firefox and Chrome
+  $('body').animate({ scrollTop: 2000 }, 2000); // works in Safari
+});*/
